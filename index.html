@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="utf-8">
+  <title>ToDo</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <script src="https://unpkg.com/vue@next"></script>
+  
+  <div id="todoapp">
+    <h1 class="app-title">ToDo List (made of Vue.js)</h1>
+    <div class="summary">  {{ numberOfCompletions }} / {{ numberOfTodos }} Completed </div>
+    <div v-for="todo in todos">
+      <div class="todo">
+        <input class="toggle" type="checkbox" v-model="todo.completed" />
+        {{ todo.title }}
+        <button class="delete-button" @click="removeTodo(todo)">x</button>
+      </div>
+    </div>
+    <input class="new-todo" placeholder="Write your ToDo here" v-model="newTodo" @keyup.enter="addTodo" />
+  </div>
+  
+  <script src="main.js"></script>
+</body>
+
+</html>
