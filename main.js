@@ -3,9 +3,7 @@ const STORAGE_KEY = 'todos-vuejs-3.0';
 const todoStorage = {
   fetch() {
     let todos = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
-    todos.forEach(function(todo, index) {
-      todo.id = index;
-    });
+    todos.forEach((todo, index) => { todo.id = index; });
     todoStorage.uid = todos.length;
     return todos;
   },
@@ -50,11 +48,7 @@ let app = Vue.createApp({
       return this.todos.length;
     },
     numberOfCompletions() {
-      let count = 0;
-      for(let i = 0; i < this.todos.length; i++){
-        if(this.todos[i].completed){ count++; }
-      }
-      return count;
+      return this.todos.filter((todo) => todo.completed).length
     },
   }
 })
