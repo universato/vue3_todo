@@ -1,7 +1,7 @@
 const STORAGE_KEY = 'todos-vuejs-3.0';
 
 const todoStorage = {
-  fetch: function() {
+  fetch() {
     let todos = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
     todos.forEach(function(todo, index) {
       todo.id = index;
@@ -9,7 +9,7 @@ const todoStorage = {
     todoStorage.uid = todos.length;
     return todos;
   },
-  save: function(todos) {
+  save(todos) {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(todos));
   }
 };
@@ -23,7 +23,7 @@ let app = Vue.createApp({
     }
   },
   methods: {
-    addTodo: function() {
+    addTodo() {
       let value = this.newTodo && this.newTodo.trim();
       if (!value) { return; }
       this.todos.push({
@@ -33,23 +33,23 @@ let app = Vue.createApp({
       });
       this.newTodo = '';
     },
-    removeTodo: function(todo) {
+    removeTodo(todo) {
       this.todos.splice(this.todos.indexOf(todo), 1);
     },
   },
   watch: {
     todos: {
-      handler: function(todos) {
+      handler(todos) {
         todoStorage.save(todos);
       },
       deep: true
     }
   },
   computed: {
-    numberOfTodos: function(){
+    numberOfTodos() {
       return this.todos.length;
     },
-    numberOfCompletions: function(){
+    numberOfCompletions() {
       let count = 0;
       for(let i = 0; i < this.todos.length; i++){
         if(this.todos[i].completed){ count++; }
