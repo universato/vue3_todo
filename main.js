@@ -1,8 +1,8 @@
-var STORAGE_KEY = 'todos-vuejs-3.0';
+const STORAGE_KEY = 'todos-vuejs-3.0';
 
-var todoStorage = {
+const todoStorage = {
   fetch: function() {
-    var todos = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+    let todos = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
     todos.forEach(function(todo, index) {
       todo.id = index;
     });
