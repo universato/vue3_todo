@@ -22,7 +22,7 @@ let app = Vue.createApp({
   },
   methods: {
     addTodo() {
-      let value = this.newTodo && this.newTodo.trim();
+      let value = this.newTodo;
       if (!value) { return; }
       this.todos.push({
         id: todoStorage.uid++,

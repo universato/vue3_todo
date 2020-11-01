@@ -20,7 +20,7 @@
         <button class="delete-button" @click="removeTodo(todo)">x</button>
       </div>
     </div>
-    <input class="new-todo" placeholder="Write your ToDo here" v-model="newTodo" @keyup.enter="addTodo" />
+    <input class="new-todo" placeholder="Write your ToDo here" v-model.lazy.trim="newTodo" @keyup.enter="addTodo" />
   </div>
   
   <script src="main.js"></script>
