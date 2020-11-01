@@ -13,11 +13,11 @@
   <div id="todoapp">
     <h1 class="app-title">ToDo List (made of Vue.js)</h1>
     <div class="summary">  {{ numberOfCompletions }} / {{ numberOfTodos }} Completed </div>
-    <div v-for="todo in todos">
+    <div v-for="(todo, i) in todos">
       <div class="todo">
         <input class="toggle" type="checkbox" v-model="todo.completed" />
         {{ todo.title }}
-        <button class="delete-button" @click="removeTodo(todo)">x</button>
+        <button class="delete-button" @click="removeTodo(i)">x</button>
       </div>
     </div>
     <input class="new-todo" placeholder="Write your ToDo here" v-model.lazy.trim="newTodo" @keyup.enter="addTodo" />
