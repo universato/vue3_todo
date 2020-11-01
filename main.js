@@ -31,8 +31,8 @@ let app = Vue.createApp({
       });
       this.newTodo = '';
     },
-    removeTodo(todo) {
-      this.todos.splice(this.todos.indexOf(todo), 1);
+    removeTodo(index) {
+      this.todos.splice(index, 1);
     },
   },
   watch: {
